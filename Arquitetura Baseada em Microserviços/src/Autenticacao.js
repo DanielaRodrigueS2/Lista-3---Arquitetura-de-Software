@@ -1,9 +1,10 @@
 export default class Autenticacao {
     constructor() {
-        this.users = {
-            "user1": "senha1",
-            "user2": "senha2"
-        };
+        this.users = []
+    }
+
+    adicionarUser(user){
+        this.users.append(user)
     }
 
     authentication(user, senha){

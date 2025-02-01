@@ -1,4 +1,4 @@
-export default class Pagamento {
+class Pagamento {
 
     processarPagamento(pedido) {
         if (saldo < pedido.total){
@@ -12,3 +12,5 @@ export default class Pagamento {
         }
     }
 }
+
+module.exports = Pagamento;

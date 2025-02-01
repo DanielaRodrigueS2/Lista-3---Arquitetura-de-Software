@@ -1,24 +1,13 @@
-export default class User{
-    
-    constructor(cpf, nome, email,senha, carrinho){
-        this.cpf = cpf
-        this.nome = nome
-        this.email = email
+class User{
+    constructor(usuario, senha, saldo, carrinho){
+        this.usuario = usuario
         this.senha = senha
         this.saldo = 0.0
         this.carrinho = carrinho
     }
 
-    getNome(){
-        return this.nome
-    }
-
-    getCpf(){
-        return this.cpf
-    }
-
-    getEmail(){
-        return this.email
+    getUsuario(){
+        return this.usuario
     }
 
     getSenha(){
@@ -32,5 +21,6 @@ export default class User{
     alterarSaldo(valor){
         this.saldo += valor
     }
-
 }
+
+module.exports = User;

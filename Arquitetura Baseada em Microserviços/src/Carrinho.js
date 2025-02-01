@@ -1,14 +1,12 @@
-export default class Carrinho{
-
+class Carrinho{
     constructor(){
         this.carrinho =[]
         this.total = 0;
     }
 
-    adicionarProduto(codigo, quantidade, nome, preco){
+    adicionarProduto(codigo, nome, preco){
         this.carrinho.append({
-            codigo: codigo, 
-            quantidade : quantidade, 
+            codigo: codigo,
             nome : nome,
             preco : preco
         })
@@ -32,5 +30,6 @@ export default class Carrinho{
         console.log('\n\tProduto não encontrado')
         return
     }
-
 }
+
+module.exports = Carrinho;

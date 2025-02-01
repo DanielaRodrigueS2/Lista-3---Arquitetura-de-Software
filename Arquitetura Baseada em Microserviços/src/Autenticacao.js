@@ -1,10 +1,13 @@
-export default class Autenticacao {
+class Autenticacao {
     constructor() {
-        this.users = []
+        this.users = {
+            'user1': 'senha1',
+            'user2': 'senha2'
+        }
     }
 
     adicionarUser(user){
-        this.users.append(user)
+        this.users.push(user)
     }
 
     authentication(user, senha){
@@ -18,3 +21,5 @@ export default class Autenticacao {
         }
     }
 }
+
+module.exports = Autenticacao;

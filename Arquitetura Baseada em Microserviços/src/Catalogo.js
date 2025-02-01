@@ -1,4 +1,4 @@
-export default class Catalogo {
+class Catalogo {
     constructor(){
         this.produtos = {
             'p1' : {nome :'sabonete', preco: 2.40, estoque: 10},
@@ -20,7 +20,9 @@ export default class Catalogo {
         return this.produto[codigo] ? this.produtos[codigo].estoque == 0 : false;
     }
 
-    reduzEstoque(codigo, quantidade){
-        this.produto[codigo].estoque -= quantidade;
+    reduzEstoque(codigo){
+        this.produto[codigo].estoque -= 1;
     }
 }
+
+module.exports = Catalogo;

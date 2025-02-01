@@ -1,8 +1,11 @@
 export default class Pedidos{
     
-    constructor(carrinho, status){
+    constructor(id, carrinho, status){
+        this.id = id
         this.carrinho = carrinho
         this.status = status
     }
+
+    
 
 }

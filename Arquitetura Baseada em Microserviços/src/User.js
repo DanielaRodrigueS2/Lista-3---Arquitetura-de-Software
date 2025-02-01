@@ -1,12 +1,12 @@
 export default class User{
     
-    constructor(cpf, nome, email,senha, pedido){
+    constructor(cpf, nome, email,senha, carrinho){
         this.cpf = cpf
         this.nome = nome
         this.email = email
         this.senha = senha
         this.saldo = 0.0
-        this.pedido = pedido
+        this.carrinho = carrinho
     }
 
     getNome(){

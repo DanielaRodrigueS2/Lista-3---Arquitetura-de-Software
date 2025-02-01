@@ -1,4 +1,4 @@
-export default class Pedidos{
+export default class Carrinho{
 
     constructor(){
         this.carrinho =[]

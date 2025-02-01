@@ -17,22 +17,22 @@ const pagamento = new Pagamento();
 //let userPadrao = new User('Daisy', 'abacaxi', 1, carrinho)
 //auth.adicionarUser()
 
-function menu(){
+async function menu(){
     let user = '';
     let senha = '';
     let op;
 
     console.log('\n\tAplicativo de compras');
     do{
-        user = reader.read('Informe o usuário: ');
-        senha = reader.read('informe a senha: ');
+        user = await reader.read('Informe o usuário: ');
+        senha = await reader.read('informe a senha: ');
     } while(!auth.authentication(user, senha));
 
     catalogo.listarProdutos();
     console.log('1 - Listar produtos do carrinho\n2 - Ir para pagamento\n0 - Sair da conta');
 
     do{
-        op = parseInt(reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: '));
+        op = parseInt(await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: '));
 
         switch(op){
             case 0:

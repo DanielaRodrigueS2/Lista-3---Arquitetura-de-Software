@@ -20,9 +20,7 @@ export default class Catalogo {
         return this.produto[codigo] ? this.produtos[codigo].estoque == 0 : false;
     }
 
-    reduzEstoque(codigo){
-        this.produto[codigo].estoque -= 1;
+    reduzEstoque(codigo, quantidade){
+        this.produto[codigo].estoque -= quantidade;
     }
-
-
 }

@@ -2,6 +2,7 @@ export default class Carrinho{
 
     constructor(){
         this.carrinho =[]
+        this.total = 0;
     }
 
     adicionarProduto(codigo, quantidade, nome, preco){
@@ -11,6 +12,7 @@ export default class Carrinho{
             nome : nome,
             preco : preco
         })
+        this.total += preco;
     }
 
     listarProdutos(){

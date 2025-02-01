@@ -1,7 +1,7 @@
-export default class Catalogo{
-
+export default class Catalogo {
     constructor(){
-        
-    }
+        this.produtos = {
 
+        };
+    }
 }

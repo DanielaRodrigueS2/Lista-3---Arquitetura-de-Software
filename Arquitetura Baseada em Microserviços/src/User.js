@@ -6,6 +6,7 @@ export default class User{
         this.email = email
         this.senha = senha
         this.saldo = 0.0
+        this.carrinho = []
     }
 
     getNome(){
@@ -31,5 +32,5 @@ export default class User{
     alterarSaldo(valor){
         this.saldo += valor
     }
-    
+
 }

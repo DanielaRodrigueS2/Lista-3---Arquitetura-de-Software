@@ -1,9 +1,6 @@
 class Autenticacao {
     constructor() {
-        this.users = {
-            'user1': 'senha1',
-            'user2': 'senha2'
-        }
+        this.users = []
     }
 
     adicionarUser(user){
@@ -11,14 +8,23 @@ class Autenticacao {
     }
 
     authentication(user, senha){
-        if (this.users[user] == senha) {
-            console.log(`Usuário autenticado com sucesso\n\tBem-vindo ${user}`);
-            return true;
+        for (let usuario of this.users){
+            
+            if(usuario.getUsuario() == user){
+                
+                if(usuario.getSenha() == senha){
+                    console.log('\n\tUsuário logado com sucesso')
+                    return true
+                }
+                else{
+                    console.log('\n\tSenha incorreta')
+                    return false
+                }
+
+            }
         }
-        else{
-            console.log('Usuário ou senha incorreto');
-            return false;
-        }
+        console.log('\n\tUsuário inexistente')
+        return true
     }
 }
 

@@ -14,8 +14,8 @@ const catalogo = new Catalogo();
 const carrinho = new Carrinho();
 const pagamento = new Pagamento();
 
-//let userPadrao = new User('Daisy', 'abacaxi', 1, carrinho)
-//auth.adicionarUser()
+let userPadrao = new User('Daisy', 'abacaxi', 1, carrinho)
+auth.adicionarUser(userPadrao)
 
 async function menu(){
     let user = '';

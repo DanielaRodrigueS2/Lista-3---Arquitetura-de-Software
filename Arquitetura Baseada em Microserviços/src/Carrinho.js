@@ -5,7 +5,7 @@ class Carrinho{
     }
 
     adicionarProduto(codigo, nome, preco){
-        this.carrinho.append({
+        this.carrinho.push({
             codigo: codigo,
             nome : nome,
             preco : preco
@@ -14,21 +14,21 @@ class Carrinho{
     }
 
     listarProdutos(){
-        for (let produto in this.carrinho){
-            console.log(`\n\tCódigo: ${produto.codigo} nome: ${produto.nome} preço: ${produto.preco} preçoTotal: ${produto.quantidade * (produto.preco)} `)
+        for (let produto of this.carrinho){
+            console.log(`\n\tCódigo: ${produto.codigo} nome: ${produto.nome} preço: ${produto.preco}`)
         }
     }
 
-    removerProduto(codigo){
-        for(let produto in this.carrinho){
-            if(produto.codigo == codigo){
-                this.carrinho.push(produto)
-                console.log('\n\tProduto Removido')
-                return
+    removerProduto(codigo) {
+        for (let i = 0; i < this.carrinho.length; i++) {
+            if (this.carrinho[i].codigo === codigo) {
+                this.total -= this.carrinho[i].preco;
+                this.carrinho.splice(i, 1); 
+                console.log('\n\tProduto Removido');
+                return;
             }
         }
-        console.log('\n\tProduto não encontrado')
-        return
+        console.log('\n\tProduto não encontrado');
     }
 }
 

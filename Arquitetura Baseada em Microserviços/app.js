@@ -9,11 +9,11 @@ import ReadInput from "./src/ReadInput";
 // Importação da classe User
 import User from "./src/User";
 
-auth = new Autenticacao
-reader = new ReadInput
-catalogo = new Catalogo
-carrinho = new Carrinho
-pagamento = new Pagamento
+auth = new Autenticacao();
+reader = new ReadInput();
+catalogo = new Catalogo();
+carrinho = new Carrinho();
+pagamento = new Pagamento();
 
 userPadrao = User(1,'Daisy', 'daisy@gmail.com', 'abacaxi', Carrinho())
 Autenticacao.adicionaUser()

@@ -14,6 +14,7 @@ class Carrinho{
     }
 
     listarProdutos(){
+        console.log('\nProdutos no carrinho: ')
         for (let produto of this.carrinho){
             console.log(`\n\tCódigo: ${produto.codigo} nome: ${produto.nome} preço: ${produto.preco}`)
         }
@@ -23,7 +24,7 @@ class Carrinho{
         for (let i = 0; i < this.carrinho.length; i++) {
             if (this.carrinho[i].codigo === codigo) {
                 this.total -= this.carrinho[i].preco;
-                this.carrinho.splice(i, 1); 
+                this.carrinho.splice(i, 1);  
                 console.log('\n\tProduto Removido');
                 return;
             }

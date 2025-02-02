@@ -33,16 +33,16 @@ async function menu(){
     console.log('\n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n0 - Sair da conta');
 
     do{
-        op = parseInt(await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: '));
+        op = await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: ');
 
         switch(op){
             case 0:
-            
+                
                 break;
-            case 1:
-                userPadrao.carrinho.mostrarProdutos()
+            case '1':
+                userPadrao.carrinho.listarProdutos()
                 break;
-            case 2:
+            case '2':
                 pagamento.processarPagamento();
                 break;
             default:

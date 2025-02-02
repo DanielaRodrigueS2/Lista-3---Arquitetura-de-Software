@@ -17,7 +17,7 @@ class Catalogo {
     }
 
     verificaEstoque(codigo){
-        return this.produtos[codigo] ? this.produtos[codigo].estoque == 0 : false;
+        return this.produtos[codigo] ? this.produtos[codigo].estoque > 0 : false;
     }
 
     reduzEstoque(codigo){

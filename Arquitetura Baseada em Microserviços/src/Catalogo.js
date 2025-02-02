@@ -12,16 +12,16 @@ class Catalogo {
     listarProdutos(){
         console.log('Catálogo de Produtos');
         for (let produto in this.produtos) {
-            console.log(`\n\tCódigo: ${produto} Nome: ${produto.nome} R$ ${produto.preco}  Estoque: ${produto.estoque}`);
+            console.log(`\n\tCódigo: ${produto} Nome: ${this.produtos[produto].nome} R$ ${this.produtos[produto].preco}  Estoque: ${this.produtos[produto].estoque}`);
         }
     }
 
     verificaEstoque(codigo){
-        return this.produto[codigo] ? this.produtos[codigo].estoque == 0 : false;
+        return this.produtos[codigo] ? this.produtos[codigo].estoque == 0 : false;
     }
 
     reduzEstoque(codigo){
-        this.produto[codigo].estoque -= 1;
+        this.produtos[codigo].estoque -= 1;
     }
 }
 

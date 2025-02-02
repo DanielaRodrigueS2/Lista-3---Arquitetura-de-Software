@@ -24,7 +24,7 @@ class Autenticacao {
             }
         }
         console.log('\n\tUsuário inexistente')
-        return true
+        return false
     }
 }
 

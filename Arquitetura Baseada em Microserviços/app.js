@@ -28,18 +28,19 @@ async function menu(){
         senha = await reader.read('informe a senha: ');
     } while(!auth.authentication(user, senha));
 
+    
     catalogo.listarProdutos();
-    console.log('1 - Listar produtos do carrinho\n2 - Ir para pagamento\n0 - Sair da conta');
+    console.log('\n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n0 - Sair da conta');
 
     do{
         op = parseInt(await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: '));
 
         switch(op){
             case 0:
-    
+            
                 break;
             case 1:
-                carrinho.listarProdutos();
+                userPadrao.carrinho.mostrarProdutos()
                 break;
             case 2:
                 pagamento.processarPagamento();

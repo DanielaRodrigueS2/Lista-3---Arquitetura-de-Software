@@ -18,6 +18,10 @@ class User{
         return this.saldo
     }
 
+    getCarrinho(){
+        return this.carrinho
+    }
+
     alterarSaldo(valor){
         this.saldo += valor
     }

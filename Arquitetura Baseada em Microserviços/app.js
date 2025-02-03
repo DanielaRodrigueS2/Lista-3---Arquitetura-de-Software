@@ -14,7 +14,8 @@ const catalogo = new Catalogo();
 const carrinho = new Carrinho();
 const pagamento = new Pagamento();
 
-let userPadrao = new User('Daisy', 'abacaxi', 1, carrinho)
+let userPadrao = new User('Daisy', 'abacaxi', 1, carrinho) //Usuário criado padrão
+let userLogado = null
 auth.adicionarUser(userPadrao)
 
 async function menu(){
@@ -26,21 +27,22 @@ async function menu(){
     do{
         user = await reader.read('Informe o usuário: ');
         senha = await reader.read('informe a senha: ');
-    } while(!auth.authentication(user, senha));
+    } while((userLogado = auth.authentication(user, senha))== null);
 
     
     catalogo.listarProdutos();
-    console.log('\n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n0 - Sair da conta');
+    console.log('\n0 - Adicionar saldo a carteira \n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n0 - Sair da conta');
 
     do{
         op = await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: ');
 
         switch(op){
-            case 0:
-                
+            case '0':
+                valor = await reader.read('\nDigite o valor a ser inserido: ')
+                userLogado.alterarSaldo(valor)
                 break;
             case '1':
-                userPadrao.carrinho.listarProdutos()
+                userLogado.carrinho.listarProdutos()
                 break;
             case '2':
                 pagamento.processarPagamento();

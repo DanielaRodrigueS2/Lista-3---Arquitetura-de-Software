@@ -14,17 +14,17 @@ class Autenticacao {
                 
                 if(usuario.getSenha() == senha){
                     console.log('\n\tUsuário logado com sucesso')
-                    return true
+                    return usuario
                 }
                 else{
                     console.log('\n\tSenha incorreta')
-                    return false
+                    return null
                 }
 
             }
         }
         console.log('\n\tUsuário inexistente')
-        return false
+        return null
     }
 }
 

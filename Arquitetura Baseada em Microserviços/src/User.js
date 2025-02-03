@@ -1,3 +1,5 @@
+const { error } = require("console")
+
 class User{
     constructor(usuario, senha, saldo, carrinho){
         this.usuario = usuario
@@ -23,7 +25,12 @@ class User{
     }
 
     alterarSaldo(valor){
-        this.saldo += valor
+        try{
+            this.saldo += parseFloat(valor)
+        }
+        catch{
+            console.log('\nValor deve ser númerico')
+        }
     }
 }
 

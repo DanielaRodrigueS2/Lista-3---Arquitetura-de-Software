@@ -31,7 +31,7 @@ async function menu(){
 
     
     catalogo.listarProdutos();
-    console.log('\n0 - Adicionar saldo a carteira \n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n0 - Sair da conta');
+    console.log('\n0 - Adicionar saldo a carteira \n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n-1 - Sair da conta');
 
     do{
         op = await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: ');
@@ -39,6 +39,7 @@ async function menu(){
         switch(op){
             case '0':
                 valor = await reader.read('\nDigite o valor a ser inserido: ')
+                valor = parseFloat(valor)
                 userLogado.alterarSaldo(valor)
                 break;
             case '1':
@@ -56,7 +57,7 @@ async function menu(){
                 }
                 break;
         }
-    } while(op != 0);
+    } while(op != -1);
 }
 
 menu();

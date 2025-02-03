@@ -25,12 +25,13 @@ class User{
     }
 
     alterarSaldo(valor){
-        try{
-            this.saldo += parseFloat(valor)
+        if(isNaN(valor)){
+            console.log('\nDigite um valor válido')
         }
-        catch{
-            console.log('\nValor deve ser númerico')
+        else{
+            this.valor += valor
         }
+        
     }
 }
 

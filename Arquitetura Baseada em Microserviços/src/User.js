@@ -2,7 +2,7 @@ class User{
     constructor(usuario, senha, saldo, carrinho){
         this.usuario = usuario
         this.senha = senha
-        this.saldo = 0.0
+        this.saldo = saldo
         this.carrinho = carrinho
     }
 
@@ -20,10 +20,6 @@ class User{
 
     getCarrinho(){
         return this.carrinho
-    }
-
-    alterarSaldo(valor){
-        this.saldo += valor
     }
 }
 

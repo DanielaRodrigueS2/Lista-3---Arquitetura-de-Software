@@ -1,15 +1,23 @@
 class Pagamento {
+    constructor(){
+        this.quantPedidos = 0
+    }
 
-    processarPagamento(pedido) {
-        if (saldo < pedido.total){
-            console.log('Falha no pagamento: Saldo insuficiente');
+    processarPagamento(saldo, carrinho) {
+        if (saldo < carrinho.total){
+            console.log('\n\tFalha no pagamento: Saldo insuficiente');
             return false;
         }
         else {
-            pedido.status = 'pago';
-            console.log('Pagamento do pedido aprovado!');
+            carrinho.status = 'pago';
+            carrinho.id = this.alteraQuantPedidos();
+            console.log('\n\tPagamento do pedido aprovado!');
             return true;
         }
+    }
+
+    alteraQuantPedidos(){
+        return ++this.quantPedidos;
     }
 }
 

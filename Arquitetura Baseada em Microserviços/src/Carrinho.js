@@ -1,7 +1,10 @@
 class Carrinho{
     constructor(){
+        this.user = '';
+        this.id = 0;
         this.carrinho =[]
         this.total = 0;
+        this.status = 'pagamento pendente';
     }
 
     adicionarProduto(codigo, nome, preco){
@@ -14,9 +17,15 @@ class Carrinho{
     }
 
     listarProdutos(){
-        console.log('\nProdutos no carrinho: ')
-        for (let produto of this.carrinho){
-            console.log(`\n\tCódigo: ${produto.codigo} nome: ${produto.nome} preço: ${produto.preco}`)
+        console.log('\nProdutos no carrinho:')
+        if(this.carrinho.length == 0) {
+            console.log('\tCarrinho Vazio\n')
+        }
+        else{
+            for (let produto of this.carrinho){
+                console.log(`\tCódigo: ${produto.codigo}  Nome: ${produto.nome}  Preço: ${produto.preco}`)
+            }
+            console.log(`Total: ${this.total.toFixed(2)}\nStatus: ${this.total.status}`)
         }
     }
 

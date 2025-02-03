@@ -13,19 +13,24 @@ class Autenticacao {
             if(usuario.getUsuario() == user){
                 
                 if(usuario.getSenha() == senha){
-                    console.log('\n\tUsuário logado com sucesso')
+                    console.log(`\n\tUsuário logado com sucesso. Bem vindo ${user}`)
                     return true
                 }
                 else{
-                    console.log('\n\tSenha incorreta')
+                    console.log('\n\tSenha incorreta\n')
                     return false
                 }
 
             }
         }
-        console.log('\n\tUsuário inexistente')
+        console.log('\n\tUsuário inexistente\n')
         return false
     }
+
+    getUser(user) {
+        return this.users.find(u => u.usuario === user);
+    }
+    
 }
 
 module.exports = Autenticacao;

@@ -38,14 +38,14 @@ async function menu(){
         catalogo.listarProdutos();
 
         do{
-            console.log('\n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n3 - Listar pedidos\n4 - Listar Catalogo de Produtos\n5 - Ver saldo\n6 - Adicionar Saldo ');
+            console.log('\n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n3 - Listar pedidos\n4 - Listar Catalogo de Produtos\n5 - Ver saldo\n6 - Adicionar Saldo\n0 - Sair da conta');
             op = await reader.read('Informe um código para adicionar o produto ao carrinho ou uma das opções acima: ');
 
             switch(op){
-                case 0:
+                case '0':
                     break;
                 case '1':
-                    carrinho.listarProdutos()
+                    carrinho.listarProdutos();
                     await reader.esperar();
                     break;
                 case '2':
@@ -58,7 +58,7 @@ async function menu(){
                             usuario.saldo -= carrinho.total;
                             carrinho.carrinho = [];
                             carrinho.total = 0;
-                            carrinho.status = 'pagamento pendente'
+                            carrinho.status = 'pagamento pendente';
                         }
                     }
                     await reader.esperar();
@@ -71,7 +71,7 @@ async function menu(){
                     catalogo.listarProdutos();
                     break;
                 case '5':
-                    console.log(`\n\tSaldo atual: R$ ${usuario.saldo}`)
+                    console.log(`\n\tSaldo atual: R$ ${usuario.saldo}`);
                     await reader.esperar();
                     break;
                 case '6':
@@ -96,8 +96,8 @@ async function menu(){
                     }
                     break;
             }
-        } while(op!=0);
-    }while(true);
+        } while(op != 0);
+    } while(true);
 }
 
 menu();

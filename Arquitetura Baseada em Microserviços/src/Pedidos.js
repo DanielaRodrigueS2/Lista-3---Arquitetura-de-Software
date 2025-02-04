@@ -5,13 +5,13 @@ class Pedidos {
     }
 
     // Adciona um novo pedido, recebe o carrinho e o user ligados ao pedido
-    addPedido(carrinho, user) {
+    addPedido(user, carrinho, total, status) {
         const pedido = {
             id: this.alteraQuantPedidos(),
             user: user,
-            produtos: carrinho.carrinho,
-            total: carrinho.total,
-            status: carrinho.status,
+            produtos: carrinho,
+            total: total,
+            status: status,
         };
         
         this.pedidos.push(pedido);
@@ -21,7 +21,7 @@ class Pedidos {
     listarPedidos(user) {
         console.log('\nPedidos Realizados');
         this.pedidos.forEach(pedido => {
-            if (pedido.user.usuario == user.usuario) {
+            if (pedido.user == user) {
                 console.log(`\nPedido: ${pedido.id}`);
                 console.log(pedido.produtos);
                 console.log(`Total: ${pedido.total}\nStatus: ${pedido.status}`);

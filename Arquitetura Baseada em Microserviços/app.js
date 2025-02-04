@@ -18,28 +18,31 @@ const pedidos = new Pedidos();
 
 let userPadrao = new User('a', 'a', 100, carrinho) // Criação do userPadrão User,senha,saldo,carrinho
 auth.adicionarUser(userPadrao) // Autenticação do usuário padrão
+userPadrao = new User('b', 'b', 100, carrinho) // Criação do userPadrão User,senha,saldo,carrinho
+auth.adicionarUser(userPadrao) // Autenticação do usuário padrão
 
 async function menu(){
     let user = '';
     let senha = '';
     let op;
 
+    do{
         console.log('\n\tAPLICATIVO DE COMPRAS');
         do{
             user = await reader.read('Informe o usuário: ');
             senha = await reader.read('informe a senha: ');
-        } while(!auth.authentication(user, senha));
+        } while(!auth.authentication(user, senha));1
 
         let usuario = auth.getUser(user);
         await reader.esperar();
         catalogo.listarProdutos();
 
         do{
-            console.log('\n0 - Sair \n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n3 - Listar pedidos\n4 - Listar Catalogo de Produtos\n5 - Ver saldo\n6 - Adicionar Saldo ');
-            op = await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: ');
+            console.log('\n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n3 - Listar pedidos\n4 - Listar Catalogo de Produtos\n5 - Ver saldo\n6 - Adicionar Saldo ');
+            op = await reader.read('Informe um código para adicionar o produto ao carrinho ou uma das opções acima: ');
 
             switch(op){
-                case '0':
+                case 0:
                     break;
                 case '1':
                     carrinho.listarProdutos()
@@ -51,10 +54,11 @@ async function menu(){
                     }
                     else{
                         if(pagamento.processarPagamento(usuario.saldo, carrinho)){
-                            pedidos.addPedido(user, carrinho);
+                            pedidos.addPedido(user, carrinho.carrinho, carrinho.total.toFixed(2), carrinho.status);
                             usuario.saldo -= carrinho.total;
                             carrinho.carrinho = [];
                             carrinho.total = 0;
+                            carrinho.status = 'pagamento pendente'
                         }
                     }
                     await reader.esperar();
@@ -81,15 +85,19 @@ async function menu(){
                             catalogo.reduzEstoque(op);
                             carrinho.adicionarProduto(op, catalogo.produtos[op].nome, catalogo.produtos[op].preco);
                             console.log('\n\tProduto adicionado com sucesso!');
-                            await reader.esperar();
                         }
+                        else{
+                            console.log('\n\tEstoque indisponível para o produto solicitado');
+                        }
+                        await reader.esperar();
                     }
                     else{
                         console.log('\n\tOpção inválida');
                     }
                     break;
             }
-        } while(op != '0');
+        } while(op!=0);
+    }while(true);
 }
 
 menu();

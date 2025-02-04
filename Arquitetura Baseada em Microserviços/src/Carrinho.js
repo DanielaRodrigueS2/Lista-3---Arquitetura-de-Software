@@ -27,7 +27,7 @@ class Carrinho{
             for (let produto of this.carrinho){
                 console.log(`\tCódigo: ${produto.codigo}  Nome: ${produto.nome}  Preço: ${produto.preco}`)
             }
-            console.log(`Total: ${this.total.toFixed(2)}\nStatus: ${this.total.status}`)
+            console.log(`Total: ${this.total.toFixed(2)}\nStatus: ${this.status}`)
         }
     }
 

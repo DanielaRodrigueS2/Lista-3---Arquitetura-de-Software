@@ -23,6 +23,15 @@ class User{
     getCarrinho(){
         return this.carrinho
     }
+
+    alteraSaldo(valor){
+        if(isNaN(valor) || valor <= 0){
+            console.log('\n\tValor inválido')
+        }
+        else{
+            this.saldo += valor
+        }
+    }
 }
 
 module.exports = User;

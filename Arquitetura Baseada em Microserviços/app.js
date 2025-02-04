@@ -35,7 +35,7 @@ async function menu(){
         catalogo.listarProdutos();
 
         do{
-            console.log('\n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n3 - Listar pedidos\n4 - Listar Catalogo de Produtos\n5 - Ver saldo');
+            console.log('\n0 - Sair \n1 - Listar produtos do carrinho\n2 - Ir para pagamento\n3 - Listar pedidos\n4 - Listar Catalogo de Produtos\n5 - Ver saldo\n6 - Adicionar Saldo ');
             op = await reader.read('Informe um código para adicionar o produto ao carrinho ou uma opção de ação: ');
 
             switch(op){
@@ -70,6 +70,11 @@ async function menu(){
                     console.log(`\n\tSaldo atual: R$ ${usuario.saldo}`)
                     await reader.esperar();
                     break;
+                case '6':
+                    valor = await reader.read('\nAdicione o valor a ser inserido: ')
+                    valor = parseFloat(valor)
+                    usuario.alteraSaldo(valor)
+                    await reader.esperar();
                 default:
                     if(catalogo.produtos[op]){
                         if(catalogo.verificaEstoque(op)){
@@ -84,7 +89,7 @@ async function menu(){
                     }
                     break;
             }
-        } while(true);
+        } while(op != '0');
 }
 
 menu();

@@ -8,6 +8,7 @@ const ReadInput = require("./src/ReadInput");
 // Importação da classe User
 const User = require("./src/User");
 
+// Implementação das classes de serviço
 const auth = new Autenticacao();
 const reader = new ReadInput();
 const catalogo = new Catalogo();
@@ -15,8 +16,8 @@ const carrinho = new Carrinho();
 const pagamento = new Pagamento();
 const pedidos = new Pedidos();
 
-let userPadrao = new User('a', 'a', 100, carrinho)
-auth.adicionarUser(userPadrao)
+let userPadrao = new User('a', 'a', 100, carrinho) // Criação do userPadrão User,senha,saldo,carrinho
+auth.adicionarUser(userPadrao) // Autenticação do usuário padrão
 
 async function menu(){
     let user = '';

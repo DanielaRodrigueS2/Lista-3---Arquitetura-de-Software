@@ -9,6 +9,7 @@ class Catalogo {
         };
     }
 
+    // Lista todos os produtos cadastrados
     listarProdutos(){
         console.log('\nCatálogo de Produtos');
         for (let produto in this.produtos) {
@@ -16,10 +17,12 @@ class Catalogo {
         }
     }
 
+    // Verifica o estoque de um pedido especifico
     verificaEstoque(codigo){
         return this.produtos[codigo] ? this.produtos[codigo].estoque > 0 : false;
     }
 
+    // Reduz o estoque de um pedido em -1 quando necessário
     reduzEstoque(codigo){
         this.produtos[codigo].estoque -= 1;
     }

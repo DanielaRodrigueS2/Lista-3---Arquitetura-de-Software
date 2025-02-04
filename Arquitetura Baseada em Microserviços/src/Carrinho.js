@@ -7,6 +7,7 @@ class Carrinho{
         this.status = 'pagamento pendente';
     }
 
+    // Adiciona um produto ao carrinho
     adicionarProduto(codigo, nome, preco){
         this.carrinho.push({
             codigo: codigo,
@@ -16,6 +17,7 @@ class Carrinho{
         this.total += preco;
     }
 
+    // Lista todos os produtos que já foram adicionados ao carrinho
     listarProdutos(){
         console.log('\nProdutos no carrinho:')
         if(this.carrinho.length == 0) {
@@ -29,6 +31,7 @@ class Carrinho{
         }
     }
 
+    // Remove um produto com base em seu codigo
     removerProduto(codigo) {
         for (let i = 0; i < this.carrinho.length; i++) {
             if (this.carrinho[i].codigo === codigo) {

@@ -3,10 +3,12 @@ class Autenticacao {
         this.users = []
     }
 
+    // Adiciona um novo usuario a lista de usuarios
     adicionarUser(user){
         this.users.push(user)
     }
 
+    // Valida a entrada de um usuario com base no user e sua senha
     authentication(user, senha){
         for (let usuario of this.users){
             
@@ -27,6 +29,7 @@ class Autenticacao {
         return false
     }
 
+    // retorna um usuario com base em seu codigo(user)
     getUser(user) {
         return this.users.find(u => u.usuario === user);
     }

@@ -3,6 +3,7 @@ class Pagamento {
         this.quantPedidos = 0
     }
 
+    // Processa um pagamento com base no saldo total do usuario - total do carrinho
     processarPagamento(saldo, carrinho) {
         if (saldo < carrinho.total){
             console.log('\n\tFalha no pagamento: Saldo insuficiente');
@@ -16,6 +17,7 @@ class Pagamento {
         }
     }
 
+    // Altera a quantidade de pedidos ativos
     alteraQuantPedidos(){
         return ++this.quantPedidos;
     }

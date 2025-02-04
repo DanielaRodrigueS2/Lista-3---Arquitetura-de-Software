@@ -1,3 +1,4 @@
+// Classe para leitura de dados recebidos pelo teclado
 const readline = require('readline') 
 
 class ReadInput {

@@ -1,3 +1,5 @@
+const { error } = require("console")
+
 class User{
     constructor(usuario, senha, saldo, carrinho){
         this.usuario = usuario
